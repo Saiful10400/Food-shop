@@ -10,10 +10,10 @@ const Home = () => {
         <div className="lg:w-[1400px] mx-auto">
             <Navbar></Navbar>
             <Banner></Banner>
-            {/* <PopularDish></PopularDish> */}
-            {/* <RecomendedDish></RecomendedDish> */}
+            <PopularDish></PopularDish>
+            <RecomendedDish></RecomendedDish>
         </div>
-        {/* <Footer></Footer> */}
+        <Footer></Footer>
         </>
     );
 };
