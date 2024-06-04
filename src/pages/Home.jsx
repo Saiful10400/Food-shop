@@ -7,13 +7,13 @@ import RecomendedDish from "../components/Recomended_dis/RecomendedDish";
 const Home = () => {
     return (
         <>
-        <div className="w-[1400px] mx-auto">
+        <div className="lg:w-[1400px] mx-auto">
             <Navbar></Navbar>
-            <Banner></Banner>
-            <PopularDish></PopularDish>
-            <RecomendedDish></RecomendedDish>
+            {/* <Banner></Banner> */}
+            {/* <PopularDish></PopularDish> */}
+            {/* <RecomendedDish></RecomendedDish> */}
         </div>
-        <Footer></Footer>
+        {/* <Footer></Footer> */}
         </>
     );
 };

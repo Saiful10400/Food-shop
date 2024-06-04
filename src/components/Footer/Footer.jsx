@@ -6,7 +6,7 @@ import { AiOutlineInstagram } from "react-icons/ai";
 const Footer = () => {
   return (
     <div className="bg-[#f99f1c] min-h-24 mt-6 pb-10">
-      <div className="w-[1400px] mx-auto flex justify-center items-center">
+      <div className="lg:w-[1400px] mx-auto flex justify-center items-center">
         <div className="w-3/5 ">
           <div className="  pl-14">
             <form className="w-[90%]  relative">
