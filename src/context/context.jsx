@@ -21,8 +21,11 @@ useEffect(()=>{
   })
 },[])
 
+//handle modal behaviour.
+const[isModalOpen,setModalOpen]=useState(false)
+
   //context data object.
-  const contextData = {popularDish,recommendedDish};
+  const contextData = {popularDish,recommendedDish,isModalOpen,setModalOpen};
   return (
     <contextProvider.Provider value={contextData}>
       {children}

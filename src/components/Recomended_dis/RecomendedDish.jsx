@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import contextProvider from "../../context/appContext";
-import Carousel from "../../utility/Carousel";
+import Carousel from "../../utility/Carousel/Carousel";
 
 
 const RecomendedDish = () => {

@@ -2,6 +2,9 @@ import PropTypes from "prop-types";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import "./carousel.css"
+import Popup from "../Popup/Popup";
+import { useContext } from "react";
+import contextProvider from "../../context/appContext";
 const Carousel = ({ items, tittle }) => {
   const container = document.getElementById(`${tittle}carocontainer`);
   container?.addEventListener("click", () => {
@@ -18,12 +21,18 @@ const Carousel = ({ items, tittle }) => {
     container.scrollLeft = container.scrollLeft - container.clientWidth;
   };
 
+  // modal Status handle.
+  const{setModalOpen}=useContext(contextProvider)
+  const HandleModal=()=>{
+    setModalOpen(true)
+  }
+
   return (
-    <div className=" pl-2">
+    <div className=" pl-2 lg:pl-0">
       <div className="flex justify-between mb-3">
         <h1 className="lg:text-2xl text-lg font-bold lg:font-normal">{tittle}</h1>
         <div className="flex items-center gap-x-2">
-          <button className="text-[#fc6011] lg:inline-block hidden text-lg mb-2">AddMore</button>
+          <button onClick={HandleModal} className="text-[#fc6011] lg:inline-block hidden text-lg mb-2">AddMore</button>
 
           <span className="text-3xl">
             <button className="lg:inline-block hidden" onClick={carouselBackwardHandle}>
@@ -58,6 +67,9 @@ const Carousel = ({ items, tittle }) => {
           );
         })}
       </div>
+
+<Popup></Popup>
+
     </div>
   );
 };

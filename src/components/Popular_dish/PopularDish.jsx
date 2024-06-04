@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import Carousel from "../../utility/Carousel";
+import Carousel from "../../utility/Carousel/Carousel";
 import contextProvider from "../../context/appContext";
 
 
