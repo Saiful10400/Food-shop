@@ -8,10 +8,10 @@ const Home = () => {
     return (
         <>
         <div className="lg:w-[1400px] mx-auto">
-            <Navbar></Navbar>
-            <Banner></Banner>
-            <PopularDish></PopularDish>
-            <RecomendedDish></RecomendedDish>
+            <div><Navbar></Navbar></div>
+            <div className="my-28"><Banner></Banner></div>
+            <div className="mb-11"><PopularDish></PopularDish></div>
+            <div className="mb-56"><RecomendedDish></RecomendedDish></div>
         </div>
         <Footer></Footer>
         </>

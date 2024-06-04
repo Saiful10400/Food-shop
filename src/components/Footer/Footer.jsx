@@ -6,12 +6,14 @@ import { AiOutlineInstagram } from "react-icons/ai";
 const Footer = () => {
   return (
     <div className="bg-[#f99f1c] min-h-24 mt-6 lg:py-0 py-20 pb-10">
-      <div className="lg:w-[1400px] mx-auto flex justify-center items-center">
+      <div className="lg:w-[1400px] lg:mx-auto flex justify-center items-center">
         <div className="lg:w-3/5 w-full ">
-          <div className="  lg:pl-14">
-            <form className="w-[90%] mx-auto relative">
+
+
+          <div className="  lg:pl-14  flex flex-col justify-center lg:items-start items-center">
+            <form className="w-[90%]  relative">
               <input
-                className="focus:outline-none w-full bg-[#f2f2f2]  py-3 rounded-xl lg:font-normal font-bold lg:text-base text-sm  pl-5"
+                className="focus:outline-none w-full bg-[#f2f2f2]  py-3 lg:rounded-2xl rounded-xl lg:font-normal font-bold lg:text-base text-sm  pl-5"
                 type="email"
                 placeholder="Enter Your Email"
               />
@@ -19,12 +21,12 @@ const Footer = () => {
                 Subscribe <HiArrowLongRight className="text-2xl group-hover:translate-x-2 duration-200" />
               </button>
             </form>
-            <div className="flex justify-center lg:flex-row flex-col-reverse lg:gap-0 gap-y-9 items-center lg:items-end mt-14">
-              <div className="w-full lg:text-start text-center ">
-                <h1 className="logo">
+            <div className="flex  w-full justify-center lg:flex-row flex-col-reverse lg:gap-0 gap-y-9 items-center lg:items-end mt-14">
+              <div className="w-full flex flex-col  justify-center items-center lg:items-start ">
+                <h1 className="logo ">
                   pti<span className="text-[#fe5b3e]">.</span>
                 </h1>
-                <h1 className="text-lg ml-3">
+                <h1 className="text-lg ml-1 ">
                   Copyright&copy;Tripp.All Right Reserved
                 </h1>
               </div>    
@@ -41,6 +43,8 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
+
         </div>
         <div className="w-2/5 lg:block hidden">
             <img className="w-3/4 mx-auto" src={footerModel} alt="" />
