@@ -5,22 +5,22 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
 const Footer = () => {
   return (
-    <div className="bg-[#f99f1c] min-h-24 mt-6 pb-10">
+    <div className="bg-[#f99f1c] min-h-24 mt-6 lg:py-0 py-20 pb-10">
       <div className="lg:w-[1400px] mx-auto flex justify-center items-center">
-        <div className="w-3/5 ">
-          <div className="  pl-14">
-            <form className="w-[90%]  relative">
+        <div className="lg:w-3/5 w-full ">
+          <div className="  lg:pl-14">
+            <form className="w-[90%] mx-auto relative">
               <input
-                className="focus:outline-none w-full bg-[#f2f2f2]  py-3 rounded-xl   pl-5"
-                type="text"
+                className="focus:outline-none w-full bg-[#f2f2f2]  py-3 rounded-xl lg:font-normal font-bold lg:text-base text-sm  pl-5"
+                type="email"
                 placeholder="Enter Your Email"
               />
-              <button className="absolute right-4 top-[6px] group bg-[#fc6011] py-2 px-8 rounded-xl !flex justify-center items-center text-lg gap-1 text-white font-semibold">
+              <button className="absolute right-1 lg:right-4 top-[6px] group lg:bg-[#fc6011] py-2 px-8 rounded-xl !flex justify-center items-center text-lg gap-1 text-[#fa7a38] lg:text-white font-semibold">
                 Subscribe <HiArrowLongRight className="text-2xl group-hover:translate-x-2 duration-200" />
               </button>
             </form>
-            <div className="flex justify-center items-end mt-24">
-              <div className="w-full">
+            <div className="flex justify-center lg:flex-row flex-col-reverse lg:gap-0 gap-y-9 items-center lg:items-end mt-14">
+              <div className="w-full lg:text-start text-center ">
                 <h1 className="logo">
                   pti<span className="text-[#fe5b3e]">.</span>
                 </h1>
@@ -28,21 +28,21 @@ const Footer = () => {
                   Copyright&copy;Tripp.All Right Reserved
                 </h1>
               </div>    
-              <div className="w-full flex justify-end items-center gap-2 ">
+              <div className="w-full flex lg:justify-end justify-center items-center gap-2 ">
                 <a href="#">
-                  <FaGoogle className="text-[#fc6d23]  w-10 h-10 p-2 rounded-full bg-[#feddba]" />
+                  <FaGoogle className="text-[#ffefe7] lg:text-[#fc6d23]  w-10 h-10 p-2 rounded-full bg-[#fc6011] lg:bg-[#feddba]" />
                 </a>
                 <a href="#">
-                  <AiOutlineTwitter className="text-[#fc6d23]  w-10 h-10 p-2 rounded-full bg-[#feddba]" />
+                  <AiOutlineTwitter className="text-[#ffefe7] lg:text-[#fc6d23]  w-10 h-10 p-2 rounded-full bg-[#fc6011] lg:bg-[#feddba]" />
                 </a>
                 <a href="#">
-                  <AiOutlineInstagram className="text-[#fc6d23]  w-10 h-10 p-2 rounded-full bg-[#feddba]" />
+                  <AiOutlineInstagram className="text-[#ffefe7] lg:text-[#fc6d23]  w-10 h-10 p-2 rounded-full bg-[#fc6011] lg:bg-[#feddba]" />
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div className="w-2/5">
+        <div className="w-2/5 lg:block hidden">
             <img className="w-3/4 mx-auto" src={footerModel} alt="" />
         </div>
       </div>
