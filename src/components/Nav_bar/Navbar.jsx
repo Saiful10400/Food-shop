@@ -30,7 +30,7 @@ const Navbar = () => {
             <IoIosArrowDown className={`text-[#fd9d6d] duration-200 text-lg lg:text-2xl ${menuActive?"-rotate-180":""}`} />
           </span>{" "}
         </button>
-        <ul className={`absolute bg-white w-full rounded-lg top-11 overflow-hidden p-0  duration-200 ${menuActive?" max-h-96 py-1 lg:py-3":"max-h-0"} `}>
+        <ul className={`absolute bg-white w-full rounded-lg top-10 lg:top-12 overflow-hidden p-0  duration-200 ${menuActive?" max-h-96 py-1 lg:py-3":"max-h-0"} `}>
            <li className="lg:pl-3 pl-1 hover:text-[#f9712d] duration-200 py-1 lg:text-base text-xs lg:font-normal cursor-pointer hover:bg-[#e7e9ec]">Home</li>
            <li className="lg:pl-3 pl-1 hover:text-[#f9712d] duration-200 py-1 lg:text-base text-xs lg:font-normal cursor-pointer hover:bg-[#e7e9ec]">Details</li>
            <li className="lg:pl-3 pl-1 hover:text-[#f9712d] duration-200 py-1 lg:text-base text-xs lg:font-normal cursor-pointer hover:bg-[#e7e9ec]">Category</li>

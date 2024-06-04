@@ -3,22 +3,34 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import "./carousel.css"
 import Popup from "../Popup/Popup";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import contextProvider from "../../context/appContext";
 const Carousel = ({ items, tittle }) => {
   const container = document.getElementById(`${tittle}carocontainer`);
   container?.addEventListener("click", () => {
-    console.log(container.scrollLeft);
+   
   });
-
+const[containerScroll,setConScroll]=useState(0)
   // carousel forward handle.
   const carouselForwardHandle = () => {
     container.scrollLeft = container.scrollLeft + container.clientWidth;
+    setConScroll(container.scrollLeft + container.clientWidth)
+    if(container.scrollLeft + container.clientWidth<0){
+      setConScroll(0)
+    } else{
+      setConScroll(container.scrollLeft + container.clientWidth)
+    }
   };
 
   // carousel backward handle.
   const carouselBackwardHandle = () => {
     container.scrollLeft = container.scrollLeft - container.clientWidth;
+    setConScroll(container.scrollLeft - container.clientWidth)
+    if(container.scrollLeft - container.clientWidth<0){
+      setConScroll(0)
+    } else{
+      setConScroll(container.scrollLeft - container.clientWidth)
+    }
   };
 
   // modal Status handle.
@@ -35,7 +47,7 @@ const Carousel = ({ items, tittle }) => {
           <button onClick={HandleModal} className="text-[#fc6011] lg:inline-block hidden text-lg mb-2">AddMore</button>
 
           <span className="text-3xl">
-            <button className="lg:inline-block hidden" onClick={carouselBackwardHandle}>
+            <button  className={`lg:inline-block hidden ${containerScroll===0?"text-gray-300":""} `} onClick={carouselBackwardHandle}>
               <IoIosArrowBack />
             </button>{" "}
             <button onClick={carouselForwardHandle}>
