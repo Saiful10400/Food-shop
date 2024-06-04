@@ -9,7 +9,7 @@ const Home = () => {
         <>
         <div className="lg:w-[1400px] mx-auto">
             <Navbar></Navbar>
-            {/* <Banner></Banner> */}
+            <Banner></Banner>
             {/* <PopularDish></PopularDish> */}
             {/* <RecomendedDish></RecomendedDish> */}
         </div>
