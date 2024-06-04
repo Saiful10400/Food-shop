@@ -1,10 +1,12 @@
-import { useCallback, useContext, useState } from "react";
+import {  useContext, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import contextProvider from "../../context/appContext";
 import {useDropzone} from 'react-dropzone'
 import uploadlogo from "../../../public/images/uploadlogo.png"
 import { useForm } from "react-hook-form";
 import * as yup from "yup"
+import { yupResolver } from '@hookform/resolvers/yup';
+import Swal from "sweetalert2";
 const Popup = () => {
   const { isModalOpen, setModalOpen } = useContext(contextProvider);
 
@@ -14,6 +16,7 @@ const Popup = () => {
   };
 
 //   image submit handle.
+const[imgReqError,setimgError]=useState(false)
   const[binariImg,setBinariImg]=useState(null)
   const{getRootProps,getInputProps,acceptedFiles,isDragActive}=useDropzone({ accept: {
     'image/png': ['.png',".jpeg",".jpg"],
@@ -25,22 +28,31 @@ if(selectedfiles){
     const reader=new FileReader()
     reader.onload=()=>{
         setBinariImg(reader.result)
+        setimgError(false)
     }
     reader.readAsDataURL(selectedfiles)
 }
 
 
-// form submit handle.
-const { register, handleSubmit } = useForm();
+// form submit handle .validation also included.
+const schema=yup.object().shape({
+    name:yup.string().required("Product name is required!"),
+    price:yup.number("Product price is required!").typeError("Product price must be a number type!").positive("Product price must be positive!").required("Product price is required!"),
+    popular:yup.string().required("Specify product popularity!"),
+    recommended:yup.string().required("Specify recommendation quality!")
+
+})
+const { register, handleSubmit,formState:{ errors } } = useForm({
+    resolver: yupResolver(schema)
+  });
 
 const formSubmitHandle=(data)=>{
-    const schema=yup.object().shape({
-        name:yup.string().required(),
-        price:yup.number().positive().required(),
-        popular:yup.string.required(),
-        recommended:yup.string.required()
-
-    })
+   console.log(data)
+   if(!binariImg){
+    setimgError(true)
+   } else if(binariImg&&data){
+    Swal.fire("Added!", "Product Added Successfully.", "success");
+   }
 
 }
 
@@ -51,7 +63,7 @@ const formSubmitHandle=(data)=>{
         isModalOpen ? "flex" : "hidden"
       }  justify-center items-center`}
     >
-      <div className="lg:min-w-[800px] lg:min-h-[400px] bg-gray-200 rounded-3xl p-2">
+      <div className="lg:min-w-[850px] lg:min-h-[400px] bg-gray-200 rounded-3xl p-2">
         <div className=" text-end text-black">
           <button onClick={closeModal} className="text-3xl">
             <IoClose />
@@ -60,9 +72,9 @@ const formSubmitHandle=(data)=>{
 
         {/* main container */}
         <h1 className="font-normal text-center lg:hidden block">Add new item</h1>
-        <div className="flex lg:flex-row flex-col p-3 gap-x-5" >
-          <div className="lg:w-2/5 flex justify-center items-center">
-            <div {...getRootProps()} className="w-[200px] h-[200px] border-black rounded-xl border-dashed border-2" >
+        <div className="flex lg:flex-row flex-col p-3 gap-x-3" >
+          <div className="lg:w-2/5 flex flex-col gap-2 justify-center items-center">
+            <div {...getRootProps()} className={`w-[200px] h-[200px] ${imgReqError?"border-red-500":"border-black"}  rounded-xl border-dashed border-2`} >
               
 
 
@@ -81,33 +93,36 @@ const formSubmitHandle=(data)=>{
 
 
             </div>
+            <p className={`${imgReqError?"block":"hidden"} text-red-500`}>product image is required!</p>
           </div>
 
 
 
 
-          <form onSubmit={handleSubmit(formSubmitHandle)} className="lg:w-3/5 flex flex-col justify-center items-start gap-4">
+          <form onSubmit={handleSubmit(formSubmitHandle)} className="lg:w-3/5 flex flex-col justify-center items-start gap-3">
             <h1 className="font-normal hidden lg:block">Add new item</h1>
             <label className=" w-full" htmlFor="name">
-              <h1 className="text-base font-normal">Item Name</h1>
+              <h1 className="text-base font-bold">Item Name</h1>
               <input {...register("name",{required:true})}
                 className="w-full focus:outline-none p-2 rounded-lg"
                 id="name"
                 type="text"
               />
+              <p className={`min-h-8  ${errors?.name?.message?"opacity-100 text-red-500":"opacity-0"}`}>{errors?.name?.message}</p>
             </label>
             <label className=" w-full" htmlFor="price">
-              <h1 className="text-base font-normal">Item Price</h1>
+              <h1 className="text-base font-bold">Item Price</h1>
               <input {...register("price",{required:true})}
                 className="w-full focus:outline-none p-2 rounded-lg"
                 id="price"
                 type="number"
               />
+              <p className={`min-h-8  ${errors?.price?.message?"opacity-100 text-red-500":"opacity-0"}`}>{errors?.price?.message}</p>
             </label>
 
             <div className="flex w-full">
               <div className=" w-full">
-                <h1 className="text-base font-normal">Is this item popular?</h1>
+                <h1 className="text-base font-bold">Is this item popular?</h1>
 
                 <div className="flex items-center gap-x-3">
                   <div className="form-check">
@@ -134,9 +149,10 @@ const formSubmitHandle=(data)=>{
                     </label>
                   </div>
                 </div>
+                <p className={`min-h-8  ${errors?.popular?.message?"opacity-100 text-red-500":"opacity-0"}`}>{errors?.popular?.message}</p>
               </div>
               <div className=" w-full">
-                <h1 className="text-base font-normal">
+                <h1 className="text-base font-bold">
                   Is this item Recommended?
                 </h1>
 
@@ -166,6 +182,7 @@ const formSubmitHandle=(data)=>{
                     </label>
                   </div>
                 </div>
+                <p className={`min-h-8  ${errors?.recommended?.message?"opacity-100 text-red-500":"opacity-0"}`}>{errors?.recommended?.message}</p>
               </div>
             </div>
 
