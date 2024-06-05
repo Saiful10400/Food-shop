@@ -7,10 +7,7 @@ This is a food store web application built with React, Vite, Tailwind CSS, and o
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the Project](#running-the-project)
-- [Scripts](#scripts)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Prerequisites
 
