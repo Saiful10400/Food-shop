@@ -1,8 +1,50 @@
-# React + Vite
+# Food-Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a food store web application built with React, Vite, Tailwind CSS, and other modern web technologies.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Scripts](#scripts)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- [Node.js](https://nodejs.org/en/download/) (version 16.x or later)
+- [npm](https://www.npmjs.com/get-npm) (version 8.x or later) or [yarn](https://yarnpkg.com/getting-started/install) (version 1.x or later)
+- A code editor (e.g., [VS Code](https://code.visualstudio.com/))
+
+## Installation
+
+Follow these steps to install the project locally:
+
+1. Clone the repository
+    ```bash
+    git clone https://github.com/Saiful10400/Food-shop.git
+    ```
+
+2. Navigate to the project directory
+    ```bash
+    cd food-store
+    ```
+
+3. Install the dependencies
+    ```bash
+    npm install
+    ```
+    or if you are using yarn
+    ```bash
+    yarn install
+    ```
+
+## Running the Project
+
+To start the development server, run:
+```bash
+npm run dev

@@ -10,7 +10,7 @@ const [recommendedDish,setRecommendedDish]=useState(null)
 
 // let's fetch disheh.
 useEffect(()=>{
-  fetch("http://www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
+  fetch("//www.api.technicaltest.quadtheoryltd.com/api/Item?page=1&pageSize=10")
   .then(res=>res.json())
   .then(result=>{
     const{Items:data}=result
